@@ -1,0 +1,26 @@
+.option {
+
+	height: 100px;
+	width: 100px;
+	margin: 10px;
+	background-color: blue; 
+	
+}
+
+.left {
+	float: left;
+	width: 100px;
+}
+
+.right {
+	float: right;
+	width: 100px;
+}
+
+.green {
+
+	background-color: green;
+
+}
+
+/*have divs align next to each other*/
