@@ -5,6 +5,8 @@
 
 var p1Choice = '';
 var p2Choice = '';
+var p1Score = 0
+var p2Score = 0
 
 
 // P1 GOES
@@ -27,17 +29,17 @@ function setScissor1() {
 }	
 
 function setRock2() {
-	p1Choice = 'rock';
+	p2Choice = 'rock';
 	console.log("P2 is rock");
 }
 
 function setPaper2() {
-	p1Choice = 'paper';
+	p2Choice = 'paper';
 	console.log("P2 is paper")
 }	
 
 function setScissor2() {
-	p1Choice = 'scissors';
+	p2Choice = 'scissors';
 	console.log("P2 is scissors")
 }	
 
@@ -55,24 +57,37 @@ function setScissor2() {
 
 document.addEventListener("keydown", function (key) {
 	
-	if(key.keyCode === 65) {
-		setRock1();
+	if(p1Choice===''){	
+
+		if(key.keyCode === 65) {
+			setRock1();
+			// checkwinner()
+		}
+		else if(key.keyCode === 83) {
+			setPaper1();
+			// checkwinner()	
+		}
+		else if(key.keyCode === 68) {
+			setScissor1();
+			// checkwinner()
+		}
 	}
-	else if(key.keyCode === 83) {
-		setPaper1();	
-	}
-	else if(key.keyCode === 68) {
-		setScissor1();
-	}
-	else if (key.keyCode === 74) {
-		setRock2();
-	}
-	else if(key.keyCode === 75) {
-		setPaper2();	
-	}
-	else if(key.keyCode === 76) {
-		setScissor2()
-	} 	
+	
+	if(p2Choice===''){
+
+		if (key.keyCode === 74) {
+			setRock2();
+			// checkwinner()
+		}
+		else if(key.keyCode === 75) {
+			setPaper2();
+			// checkwinner()	
+		}
+		else if(key.keyCode === 76) {
+			setScissor2();
+			// checkwinner()
+		} 	
+	}	
 });
 
 
@@ -114,17 +129,21 @@ function winLogic() {
 	} else if( p1Choice === 'rock' ) {
 		if ( p2Choice === 'paper' ) {
 			console.log( 'P2 wins' );
+			p2Score++;
 		} 
 		else {
 			console.log( 'P1 wins' );
+			p1Score++;
 		}
 
 	} else if( p1Choice === 'paper') {
 		if (p2Choice === 'rock') {
 			console.log('P1 wins');
+			p1Score++;
 		} 
 		else {
 			console.log('P2 wins');
+			p2Score++;
 
 		} 
 
@@ -132,13 +151,52 @@ function winLogic() {
 	else {
 		if (p2Choice === 'paper') {
 			console.log('P1 wins');
+			p1Score++;
 		} 
 		else {
 				console.log('P2 wins')
+				p2Score++;
 		}
-	}
-
+	} reset();
 }
+
+function reset() {
+	p1Choice = '';
+	p2Choice = '';
+}
+
+function resetScore() {
+	p2Score = 0;
+	p1Score = 0;
+}
+
+
+setInterval(function(){	
+	if(p1Choice!==''&&p2Choice!=='') {
+		winLogic();
+		checkWinner();
+	}
+},1000)
+
+function checkWinner(){
+	if(p1Score===3) {
+		console.log("you win the game p1");
+		resetScore();
+
+	}
+	else if (p2Score===3) {
+		console.log("you win the game p2");
+		resetScore();	
+
+	};
+}
+
+// function checkwinner(){	
+// 	if(p1Choice!==''&&p2Choice!=='') {
+// 		winLogic();
+// 	}
+// }; 
+
 
 // 4. GAMEPLAY
 
