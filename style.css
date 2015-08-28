@@ -1,6 +1,6 @@
 body {
 
-	background: url(RPS_pics/bonusbg2.png) fixed;
+	background: url(RPS_pics/backround2.png) fixed;
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -21,14 +21,14 @@ body {
 }
 
 .p1sprite {
-	left: 19vw;
-	top: 40vh;
+	left: 26vw;
+	top: 63vh;
 	/*background: url(RPS_pics/KenIdle.gif) fixed;*/
 
 }	
 
 .p2sprite {
-	right: 32vw;
+	right: 43vw;
 	/*background: url(RPS_pics/RyuIdle.gif) fixed;*/
 }
 

@@ -14,6 +14,13 @@ function updateImage (target, newImage) {
 	target.attr('src', newImage)
 }
 
+setTimeout(function(){
+	player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+	player2Img.attr("src", "RPS_pics/KenIdle.gif")
+}, 1500);
+
+
+
 updateImage(player1Img,"RPS_pics/RyuIdle.gif");
 updateImage(player2Img,"RPS_pics/KenIdle.gif");
 
@@ -135,20 +142,36 @@ function winLogic() {
 		console.log("it was a tie");
 		updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
 		updateImage(player2Img,"RPS_pics/KenHadouken.gif");
+		setTimeout(function(){
+			player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+			player2Img.attr("src", "RPS_pics/KenIdle.gif")
+		}, 800);
 
+
+
+	
 	} else if( p1Choice === 'rock' ) {
 		if ( p2Choice === 'paper' ) {
+			
 			console.log( 'P2 wins' );
-
 			updateImage(player1Img,"RPS_pics/RyuDamage.gif");
 			updateImage(player2Img,"RPS_pics/KenHadouken.gif");
-
+			setTimeout(function(){
+				player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+				player2Img.attr("src", "RPS_pics/KenIdle.gif")
+			}, 800);
 			p2Score++;
+
+
 		} 
 		else {
 			console.log( 'P1 wins' );
 			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
 			updateImage(player2Img,"RPS_pics/KenDamage.gif");
+			setTimeout(function(){
+				player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+				player2Img.attr("src", "RPS_pics/KenIdle.gif")
+			}, 800);
 			p1Score++;
 		}
 
@@ -158,6 +181,10 @@ function winLogic() {
 
 			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
 			updateImage(player2Img,"RPS_pics/KenDamage.gif");
+			setTimeout(function(){
+				player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+				player2Img.attr("src", "RPS_pics/KenIdle.gif")
+			}, 800);
 			p1Score++;
 		} 
 		else {
@@ -165,6 +192,10 @@ function winLogic() {
 
 			updateImage(player1Img,"RPS_pics/RyuDamage.gif");
 			updateImage(player2Img,"RPS_pics/KenHadouken.gif");
+			setTimeout(function(){
+				player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+				player2Img.attr("src", "RPS_pics/KenIdle.gif")
+			}, 800);
 			p2Score++;
 
 		} 
@@ -176,6 +207,10 @@ function winLogic() {
 
 			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
 			updateImage(player2Img,"RPS_pics/KenDamage.gif");
+					setTimeout(function(){
+						player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+						player2Img.attr("src", "RPS_pics/KenIdle.gif")
+					}, 800);
 			p1Score++;
 		} 
 		else {
@@ -183,6 +218,10 @@ function winLogic() {
 
 				updateImage(player1Img,"RPS_pics/RyuDamage.gif");
 				updateImage(player2Img,"RPS_pics/KenHadouken.gif");
+				setTimeout(function(){
+					player1Img.attr("src", "RPS_pics/RyuIdle.gif");
+					player2Img.attr("src", "RPS_pics/KenIdle.gif")
+				}, 800);
 				p2Score++;
 		}
 	} reset();
@@ -210,16 +249,28 @@ setInterval(function(){
 function checkWinner(){
 	if(p1Score===3) {
 		console.log("you win the game p1");
-		updateImage(player1Img,"RPS_pics/RyuVictory.gif");
-		updateImage(player2Img,"RPS_pics/KenKO.gif");
+		updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
+		updateImage(player2Img,"RPS_pics/KenDamage.gif");
+		setTimeout(function(){
+					player1Img.attr("src", "RPS_pics/RyuVictory.gif");
+					player2Img.attr("src", "RPS_pics/KenKO.gif");
+				}, 800);
+		
 		resetScore();
 
 	}
 	else if (p2Score===3) {
 		console.log("you win the game p2");
 		updateImage(player1Img,"RPS_pics/RyuKO.gif");
-		updateImage(player2Img,"RPS_pics/KenVictory.gif");
-		resetScore();	
+		updateImage(player2Img,"RPS_pics/KenHadouken.gif");
+		setTimeout(function(){
+					player1Img.attr("src", "RPS_pics/RyuKO.gif");
+					player2Img.attr("src", "RPS_pics/KenVictory.gif");
+				}, 800);
+		
+		resetScore();
+
+	
 
 	};
 }
