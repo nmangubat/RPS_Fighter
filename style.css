@@ -1,25 +1,34 @@
-.option {
+body {
 
-	height: 100px;
-	width: 100px;
-	margin: 10px;
-	background-color: blue; 
-	
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.green {
-
-	background-color: green;
+	background: url(RPS_pics/bonusbg2.png) fixed;
+	background-size: cover;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	z-index: 0;
 
 }
 
-/*have divs align next to each other*/
+
+.sprite {
+	height: 290px;
+	width: 178px;
+	z-index: 1;
+	display: inline-block;
+	position: fixed;
+	-webkit-transform: scale(2);
+	vertical-align: bottom;
+	bottom: 5vh; /*adjust for sprites later*/
+}
+
+.p1sprite {
+	left: 19vw;
+	top: 40vh;
+	/*background: url(RPS_pics/KenIdle.gif) fixed;*/
+
+}	
+
+.p2sprite {
+	right: 32vw;
+	/*background: url(RPS_pics/RyuIdle.gif) fixed;*/
+}
 

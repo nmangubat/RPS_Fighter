@@ -7,7 +7,15 @@ var p1Choice = '';
 var p2Choice = '';
 var p1Score = 0
 var p2Score = 0
+var player1Img = $('#p1 img')
+var player2Img = $('#p2 img')
 
+function updateImage (target, newImage) {
+	target.attr('src', newImage)
+}
+
+updateImage(player1Img,"RPS_pics/RyuIdle.gif");
+updateImage(player2Img,"RPS_pics/KenIdle.gif");
 
 // P1 GOES
 
@@ -125,24 +133,38 @@ function winLogic() {
 
 	if (p1Choice === p2Choice) {
 		console.log("it was a tie");
+		updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
+		updateImage(player2Img,"RPS_pics/KenHadouken.gif");
 
 	} else if( p1Choice === 'rock' ) {
 		if ( p2Choice === 'paper' ) {
 			console.log( 'P2 wins' );
+
+			updateImage(player1Img,"RPS_pics/RyuDamage.gif");
+			updateImage(player2Img,"RPS_pics/KenHadouken.gif");
+
 			p2Score++;
 		} 
 		else {
 			console.log( 'P1 wins' );
+			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
+			updateImage(player2Img,"RPS_pics/KenDamage.gif");
 			p1Score++;
 		}
 
 	} else if( p1Choice === 'paper') {
 		if (p2Choice === 'rock') {
 			console.log('P1 wins');
+
+			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
+			updateImage(player2Img,"RPS_pics/KenDamage.gif");
 			p1Score++;
 		} 
 		else {
 			console.log('P2 wins');
+
+			updateImage(player1Img,"RPS_pics/RyuDamage.gif");
+			updateImage(player2Img,"RPS_pics/KenHadouken.gif");
 			p2Score++;
 
 		} 
@@ -151,13 +173,20 @@ function winLogic() {
 	else {
 		if (p2Choice === 'paper') {
 			console.log('P1 wins');
+
+			updateImage(player1Img,"RPS_pics/RyuHadouken.gif");
+			updateImage(player2Img,"RPS_pics/KenDamage.gif");
 			p1Score++;
 		} 
 		else {
 				console.log('P2 wins')
+
+				updateImage(player1Img,"RPS_pics/RyuDamage.gif");
+				updateImage(player2Img,"RPS_pics/KenHadouken.gif");
 				p2Score++;
 		}
 	} reset();
+
 }
 
 function reset() {
@@ -181,11 +210,15 @@ setInterval(function(){
 function checkWinner(){
 	if(p1Score===3) {
 		console.log("you win the game p1");
+		updateImage(player1Img,"RPS_pics/RyuVictory.gif");
+		updateImage(player2Img,"RPS_pics/KenKO.gif");
 		resetScore();
 
 	}
 	else if (p2Score===3) {
 		console.log("you win the game p2");
+		updateImage(player1Img,"RPS_pics/RyuKO.gif");
+		updateImage(player2Img,"RPS_pics/KenVictory.gif");
 		resetScore();	
 
 	};
